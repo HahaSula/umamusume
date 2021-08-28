@@ -2091,6 +2091,59 @@
       }
     ]
   },
+  "100371": {
+    "id": "100371",
+    "name": "Schwarze Schwert",
+    "rarity": 5,
+    "description": "最終直線まで冷静に自身の計画通り\\n走行出来れば、先頭目がけて鋭い脚で\\n速度を上げる",
+    "icon_id": "20013",
+    "need_skill_point": null,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "and",
+          "items": [
+            {
+              "operator": "==",
+              "key": "is_badstart",
+              "value": "0"
+            },
+            {
+              "operator": "==",
+              "key": "temptation_count",
+              "value": "0"
+            },
+            {
+              "operator": ">=",
+              "key": "order",
+              "value": "3"
+            },
+            {
+              "operator": "==",
+              "key": "is_finalcorner",
+              "value": "1"
+            },
+            {
+              "operator": "==",
+              "key": "corner",
+              "value": "0"
+            }
+          ]
+        },
+        "condition_raw": "is_badstart==0&temptation_count==0&order>=3&is_finalcorner==1&corner==0",
+        "ability_time": 5.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "27",
+            "ability_value": 0.35,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
   "100381": {
     "id": "100381",
     "name": "#LookatCurren",
@@ -17512,6 +17565,59 @@
           ]
         },
         "condition_raw": "is_finalcorner==1&corner==0&order<=5&blocked_side_continuetime>=2",
+        "ability_time": 3.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "27",
+            "ability_value": 0.15,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "900371": {
+    "id": "900371",
+    "name": "Schwarze Schwert",
+    "rarity": 1,
+    "description": "最終直線まで冷静に自身の計画通り\\n走行出来れば、先頭目がけて\\n速度をわずかに上げる",
+    "icon_id": "20011",
+    "need_skill_point": 200,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "and",
+          "items": [
+            {
+              "operator": "==",
+              "key": "is_badstart",
+              "value": "0"
+            },
+            {
+              "operator": "==",
+              "key": "temptation_count",
+              "value": "0"
+            },
+            {
+              "operator": ">=",
+              "key": "order",
+              "value": "3"
+            },
+            {
+              "operator": "==",
+              "key": "is_finalcorner",
+              "value": "1"
+            },
+            {
+              "operator": "==",
+              "key": "corner",
+              "value": "0"
+            }
+          ]
+        },
+        "condition_raw": "is_badstart==0&temptation_count==0&order>=3&is_finalcorner==1&corner==0",
         "ability_time": 3.0,
         "cooldown_time": 500.0,
         "effects": [

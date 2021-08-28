@@ -1,7 +1,7 @@
 {
-  "name": "@greydust/umamusume",
+  "name": "@hahasula/umamusume",
   "version": "0.0.1",
-  "homepage": "https://greydust.github.io/umamusume",
+  "homepage": "https://hahasula.github.io/umamusume",
   "main": "index.jsx",
   "scripts": {
     "predeploy": "npm run build",
