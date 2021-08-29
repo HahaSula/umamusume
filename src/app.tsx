@@ -9,6 +9,7 @@ import {
 import { LocalizationData } from './library/common';
 import RelationGraph from './component/relation/graph';
 import RelationQuery from './component/relation/query';
+import ReverseQuery from './component/relation/queryP';
 import Simulator from './component/simulator/simulator';
 import Course from './component/course/course';
 import Localization from './localization';
@@ -58,9 +59,12 @@ class App extends Component<IProps, IState> {
                 <Link to="/relation/query" className="link">{localization.site['Relation Query']}</Link>
               </Menu.Item>
               <Menu.Item key="3">
-                <Link to="/course" className="link">{localization.site.Course}</Link>
+                <Link to="/relation/queryP" className="link">Rerverse{localization.site['Relation Query']}</Link>
               </Menu.Item>
               <Menu.Item key="4">
+                <Link to="/course" className="link">{localization.site.Course}</Link>
+              </Menu.Item>
+              <Menu.Item key="5">
                 <Link to="/simulator" className="link">{localization.site.Simulator}</Link>
               </Menu.Item>
             </Menu>
@@ -72,6 +76,7 @@ class App extends Component<IProps, IState> {
               </Route>
               <Route path="/relation/graph" render={() => (<RelationGraph localization={localization} />)} />
               <Route path="/relation/query" render={() => (<RelationQuery localization={localization} />)} />
+              <Route path="/relation/queryP" render={() => (<ReverseQuery localization={localization} />)} />
               <Route path="/simulator" render={() => (<Simulator localization={localization} />)} />
               <Route path="/course" render={() => (<Course localization={localization} />)} />
             </Switch>
@@ -80,7 +85,7 @@ class App extends Component<IProps, IState> {
             <Row gutter={[8, 8]}>
               <Col span={20} />
               <Col span={2}>
-                <a className="github" href="https://github.com/greydust/umamusume" target="_blank" rel="noreferrer">
+                <a className="github" href="https://github.com/hahasula/umamusume" target="_blank" rel="noreferrer">
                   <img src={`${process.env.PUBLIC_URL}/static/image/github.png`} height="30" alt="GitHub" />
                   GitHub
                 </a>

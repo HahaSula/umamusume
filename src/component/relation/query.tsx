@@ -57,6 +57,13 @@ interface IState {
   horseId: string
   horseId2: string
   horseId2Img: string 
+
+  P1: string
+  P2: string
+  Gp1: string
+  Gp2: string
+  Gp3: string
+  Gp4: string
 }
 
 class RelationQuery extends Component<IProps, IState> {
@@ -74,6 +81,20 @@ class RelationQuery extends Component<IProps, IState> {
     const targetRelations: string[] = _.intersection(relationMembers[id1], relationMembers[id2], relationMembers[id3]);
     return _.reduce(targetRelations, (sum: number, id: string) => sum + parseInt(relations[id], 10), 0);
   }
+  static calculatePairRelation(target: string | undefined,p1: string,p2: string ,gp1: string,gp2: string ,gp3: string ,gp4: string){
+    if(target === undefined ||target === p1 || target === p2 || p1 === p2){
+      return 0;
+    }
+    let relation:number =  0;
+    relation += RelationQuery.calculateRelation(target,p1);
+    relation += RelationQuery.calculateRelation(target,p2);
+    relation += RelationQuery.calculateRelation(p1,p2);
+    relation += RelationQuery.calculateGrandRelation(target,p1,gp1);
+    relation += RelationQuery.calculateGrandRelation(target,p1,gp2);
+    relation += RelationQuery.calculateGrandRelation(target,p2,gp3);
+    relation += RelationQuery.calculateGrandRelation(target,p2,gp4);
+    return relation;
+  }
 
   horses: string[];
 
@@ -84,6 +105,13 @@ class RelationQuery extends Component<IProps, IState> {
       horseId: '', 
       horseId2: '',     
       horseId2Img: '',
+
+      P1: '',
+      P2: '',
+      Gp1: '',
+      Gp2: '',
+      Gp3: '',
+      Gp4: ''
     };
   }
 
@@ -239,11 +267,158 @@ class RelationQuery extends Component<IProps, IState> {
     ));
   }
 
+
+
+  selectP1 = (event: any) => {
+    const { value } = event.target;
+    this.setState({ P1: value });
+  };
+  selectP2 = (event: any) => {
+    const { value } = event.target;
+    this.setState({ P2: value });
+  };
+  selectGp1 = (event: any) => {
+    const { value } = event.target;
+    this.setState({ Gp1: value });
+  };
+  selectGp2 = (event: any) => {
+    const { value } = event.target;
+    this.setState({ Gp2: value });
+  };
+  selectGp3 = (event: any) => {
+    const { value } = event.target;
+    this.setState({ Gp3: value });
+  };
+  selectGp4 = (event: any) => {
+    const { value } = event.target;
+    this.setState({ Gp4: value });
+  };
+  buildSelfRalation(){
+    const selfrelation = RelationQuery.calculatePairRelation(this.state.horseId,this.state.P1,this.state.P2,this.state.Gp1,this.state.Gp2,this.state.Gp3,this.state.Gp4)
+    const { localization } = this.props;
+    return <table>
+      <th colSpan={3}>self select</th>
+      <tr>
+        <td rowSpan={4}>{selfrelation}</td>
+        <td rowSpan={2}><Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              onChange={this.selectP1}
+              
+            >
+              { this.horses.map((targetHorseId) => (
+                <MenuItem key={`${targetHorseId}_option`} value={targetHorseId}>
+                  <img
+                    className="portrait"
+                    src={`${process.env.PUBLIC_URL}/static/image/character/portrait/${targetHorseId}.png`}
+                    alt={localization.character.name[targetHorseId]}
+                  />
+                  
+                </MenuItem>
+              ))}
+        </Select></td>
+        <td><Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              onChange={this.selectGp1}
+              
+            >
+              { this.horses.map((targetHorseId) => (
+                <MenuItem key={`${targetHorseId}_option`} value={targetHorseId}>
+                  <img
+                    className="portrait"
+                    src={`${process.env.PUBLIC_URL}/static/image/character/portrait/${targetHorseId}.png`}
+                    alt={localization.character.name[targetHorseId]}
+                  />
+                  
+                </MenuItem>
+              ))}
+          </Select></td>          
+      </tr>
+      <tr>
+        <td><Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              onChange={this.selectGp2}
+              
+            >
+              { this.horses.map((targetHorseId) => (
+                <MenuItem key={`${targetHorseId}_option`} value={targetHorseId}>
+                  <img
+                    className="portrait"
+                    src={`${process.env.PUBLIC_URL}/static/image/character/portrait/${targetHorseId}.png`}
+                    alt={localization.character.name[targetHorseId]}
+                  />
+                  
+                </MenuItem>
+              ))}
+          </Select></td>
+      </tr>
+      <tr>
+        
+        <td rowSpan={2}><Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              onChange={this.selectP2}
+              
+            >
+              { this.horses.map((targetHorseId) => (
+                <MenuItem key={`${targetHorseId}_option`} value={targetHorseId}>
+                  <img
+                    className="portrait"
+                    src={`${process.env.PUBLIC_URL}/static/image/character/portrait/${targetHorseId}.png`}
+                    alt={localization.character.name[targetHorseId]}
+                  />
+                  
+                </MenuItem>
+              ))}
+        </Select></td>
+        <td><Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              onChange={this.selectGp3}
+              
+            >
+              { this.horses.map((targetHorseId) => (
+                <MenuItem key={`${targetHorseId}_option`} value={targetHorseId}>
+                  <img
+                    className="portrait"
+                    src={`${process.env.PUBLIC_URL}/static/image/character/portrait/${targetHorseId}.png`}
+                    alt={localization.character.name[targetHorseId]}
+                  />
+                  
+                </MenuItem>
+              ))}
+          </Select></td>          
+      </tr>
+      <tr>
+        <td><Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              onChange={this.selectGp4}
+              
+            >
+              { this.horses.map((targetHorseId) => (
+                <MenuItem key={`${targetHorseId}_option`} value={targetHorseId}>
+                  <img
+                    className="portrait"
+                    src={`${process.env.PUBLIC_URL}/static/image/character/portrait/${targetHorseId}.png`}
+                    alt={localization.character.name[targetHorseId]}
+                  />
+                  
+                </MenuItem>
+              ))}
+          </Select></td>
+      </tr>
+    </table>
+  }
+
   render() {
     const { localization } = this.props;
     const relationArray = this.buildRelationArray(this.state.horseId);
     const grandArray = this.buildGrandArray(this.state.horseId,this.state.horseId2);
     const [sideRelationArray,bestRelation] = this.buildBestArray(this.state.horseId);
+    const selfRelation = this.buildSelfRalation();
     return (
       <div className="content">
         <div className="dropdown" >
@@ -288,6 +463,7 @@ class RelationQuery extends Component<IProps, IState> {
           <th colSpan={3}>Best couple</th>
           {bestRelation}
         </table>
+        {selfRelation}
       </div>
     );
   }
