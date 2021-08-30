@@ -85,35 +85,57 @@ interface IState {
   targetTwoMin: number,
   targetThreeMin: number,
  
+  hourseRelas: {[key: string]: number},
 }
 
 class ReverseQuery extends Component<IProps, IState> {
-  static calculateRelation(id1: string | undefined, id2: string): number {
+  calculateRelation(id1: string | undefined, id2: string): number {
     if (id1 === id2 || id1 === undefined) {
       return 0;
     }
+    const label = id1.concat(id2)
+    if(label in this.state.hourseRelas)
+    {
+      return this.state.hourseRelas[label]
+    }
     const targetRelations: string[] = _.intersection(relationMembers[id1], relationMembers[id2]);
-    return _.reduce(targetRelations, (sum: number, id: string) => sum + parseInt(relations[id], 10), 0);
+    this.state.hourseRelas[label] = _.reduce(targetRelations, (sum: number, id: string) => sum + parseInt(relations[id], 10), 0)
+    return this.state.hourseRelas[label];
   }
-  static calculateGrandRelation(id1: string | undefined, id2: string, id3: string): number {
+  calculateGrandRelation(id1: string | undefined, id2: string, id3: string): number {
     if (id1 === id2 || id1 === undefined || id1 === id3 || id2 === id3) {
       return 0;
     }
+    const label = id1.concat(id2).concat(id3)
+
+    if(label in this.state.hourseRelas)
+    {
+      return this.state.hourseRelas[label]
+    }
+
     const targetRelations: string[] = _.intersection(relationMembers[id1], relationMembers[id2], relationMembers[id3]);
-    return _.reduce(targetRelations, (sum: number, id: string) => sum + parseInt(relations[id], 10), 0);
+    this.state.hourseRelas[label] = _.reduce(targetRelations, (sum: number, id: string) => sum + parseInt(relations[id], 10), 0);
+    return this.state.hourseRelas[label];
   }
-  static calculatePairRelation(target: string | undefined,p1: string,p2: string ,gp1: string,gp2: string ,gp3: string ,gp4: string){
+  calculatePairRelation(target: string | undefined,p1: string,p2: string ,gp1: string,gp2: string ,gp3: string ,gp4: string){
     if(target === undefined ||target === p1 || target === p2 || p1 === p2){
       return 0;
     }
+    
+    const label = target.concat(p1).concat(p2).concat(gp1).concat(gp2).concat(gp3).concat(gp4)
+    if(label in this.state.hourseRelas)
+    {
+      return this.state.hourseRelas[label]
+    }
     let relation:number =  0;
-    relation += ReverseQuery.calculateRelation(target,p1);
-    relation += ReverseQuery.calculateRelation(target,p2);
-    relation += ReverseQuery.calculateRelation(p1,p2);
-    relation += ReverseQuery.calculateGrandRelation(target,p1,gp1);
-    relation += ReverseQuery.calculateGrandRelation(target,p1,gp2);
-    relation += ReverseQuery.calculateGrandRelation(target,p2,gp3);
-    relation += ReverseQuery.calculateGrandRelation(target,p2,gp4);
+    relation += this.calculateRelation(target,p1);
+    relation += this.calculateRelation(target,p2);
+    relation += this.calculateRelation(p1,p2);
+    relation += this.calculateGrandRelation(target,p1,gp1);
+    relation += this.calculateGrandRelation(target,p1,gp2);
+    relation += this.calculateGrandRelation(target,p2,gp3);
+    relation += this.calculateGrandRelation(target,p2,gp4);
+    this.state.hourseRelas[label] = relation
     return relation;
   }
 
@@ -135,6 +157,7 @@ class ReverseQuery extends Component<IProps, IState> {
       targetOneMin: 0,
       targetTwoMin: 0,
       targetThreeMin: 0,
+      hourseRelas: {}
     };
   }
 
@@ -242,11 +265,26 @@ class ReverseQuery extends Component<IProps, IState> {
             for( let gp3 of gp3List){
               for( let gp4 of gp4List){
                 let a = 0
-                if(gp1 === gp2 || gp3 === gp4)
+                if(p1 === p2||gp1 === gp2 || gp3 === gp4)
                   continue
-                const targetOneRelation:number =  ReverseQuery.calculatePairRelation(targetList[0],p1,p2,gp1,gp2,gp3,gp4);
-                const targetTwoRelation:number = ReverseQuery.calculatePairRelation(targetList[1],p1,p2,gp1,gp2,gp3,gp4);
-                const targetThreeRelation:number = ReverseQuery.calculatePairRelation(targetList[2],p1,p2,gp1,gp2,gp3,gp4);
+                const targetOneRelation:number =  this.calculatePairRelation(targetList[0],p1,p2,gp1,gp2,gp3,gp4);
+
+                let targetTwoRelation:number = 0;
+                if(targetList[1] === targetList[0]) {
+                  targetTwoRelation = targetOneRelation
+                }else{
+                  targetTwoRelation = this.calculatePairRelation(targetList[1],p1,p2,gp1,gp2,gp3,gp4);
+                }
+
+                let targetThreeRelation:number = 0;
+                if(targetList[2] === targetList[0]){
+                  targetThreeRelation = targetOneRelation
+                }else if(targetList[2] === targetList[1]){
+                  targetThreeRelation = targetTwoRelation
+                }else{
+                  targetThreeRelation = this.calculatePairRelation(targetList[2],p1,p2,gp1,gp2,gp3,gp4);
+                }
+
                 if(targetOneRelation !== 0 || targetTwoRelation !== 0 || targetThreeRelation !== 0){
                   relationArray.push({
                     targetOne: targetList[0], 
