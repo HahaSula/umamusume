@@ -3127,6 +3127,49 @@
       }
     ]
   },
+  "110561": {
+    "id": "110561",
+    "name": "禾スナハチ登ル",
+    "rarity": 5,
+    "description": "レース後半に後方で詰め寄られると\\nマシマシの幸運パワーが身体に実り\\n速度が上がる",
+    "icon_id": "20013",
+    "need_skill_point": null,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "and",
+          "items": [
+            {
+              "operator": ">=",
+              "key": "distance_rate",
+              "value": "50"
+            },
+            {
+              "operator": ">=",
+              "key": "order_rate",
+              "value": "40"
+            },
+            {
+              "operator": ">=",
+              "key": "overtake_target_time",
+              "value": "2"
+            }
+          ]
+        },
+        "condition_raw": "distance_rate>=50&order_rate>=40&overtake_target_time>=2",
+        "ability_time": 5.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "27",
+            "ability_value": 0.35,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
   "200011": {
     "id": "200011",
     "name": "右回り◎",
@@ -16221,6 +16264,310 @@
       }
     ]
   },
+  "210011": {
+    "id": "210011",
+    "name": "アオハル燃焼・速",
+    "rarity": 2,
+    "description": "レース中盤にアオハル魂が燃え\\nレース中のチームメンバーの\\nスピード合計が高いほど速度が上がる",
+    "icon_id": "20102",
+    "need_skill_point": 200,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "==",
+          "key": "phase_random",
+          "value": "1"
+        },
+        "condition_raw": "phase_random==1",
+        "ability_time": 1.8,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "27",
+            "ability_value": 0.35,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "210012": {
+    "id": "210012",
+    "name": "アオハル点火・速",
+    "rarity": 1,
+    "description": "レース中盤にアオハル魂が燃え\\nレース中のチームメンバーのスピード\\n合計が高いほど速度がわずかに上がる",
+    "icon_id": "20101",
+    "need_skill_point": 200,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "==",
+          "key": "phase_random",
+          "value": "1"
+        },
+        "condition_raw": "phase_random==1",
+        "ability_time": 1.8,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "27",
+            "ability_value": 0.15,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "210021": {
+    "id": "210021",
+    "name": "アオハル燃焼・体",
+    "rarity": 2,
+    "description": "レース中盤にアオハル魂が燃え\\nレース中のチームメンバーのスタミナ\\n合計が高いほど持久力が回復する",
+    "icon_id": "20112",
+    "need_skill_point": 200,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "==",
+          "key": "phase_random",
+          "value": "1"
+        },
+        "condition_raw": "phase_random==1",
+        "ability_time": 0.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "9",
+            "ability_value": 0.055,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "210022": {
+    "id": "210022",
+    "name": "アオハル点火・体",
+    "rarity": 1,
+    "description": "レース中盤にアオハル魂が燃えレース\\n中のチームメンバーのスタミナ合計が\\n高いほど持久力がわずかに回復する",
+    "icon_id": "20111",
+    "need_skill_point": 200,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "==",
+          "key": "phase_random",
+          "value": "1"
+        },
+        "condition_raw": "phase_random==1",
+        "ability_time": 0.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "9",
+            "ability_value": 0.015,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "210031": {
+    "id": "210031",
+    "name": "アオハル燃焼・力",
+    "rarity": 2,
+    "description": "レース終盤にアオハル魂が燃え\\nレース中のチームメンバーの\\nパワー合計が高いほど加速力が上がる",
+    "icon_id": "20122",
+    "need_skill_point": 200,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "==",
+          "key": "phase_random",
+          "value": "2"
+        },
+        "condition_raw": "phase_random==2",
+        "ability_time": 1.2,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "31",
+            "ability_value": 0.4,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "210032": {
+    "id": "210032",
+    "name": "アオハル点火・力",
+    "rarity": 1,
+    "description": "レース終盤にアオハル魂が燃え\\nレース中のチームメンバーのパワー\\n合計が高いほど加速力がわずかに上がる",
+    "icon_id": "20121",
+    "need_skill_point": 200,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "==",
+          "key": "phase_random",
+          "value": "2"
+        },
+        "condition_raw": "phase_random==2",
+        "ability_time": 1.2,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "31",
+            "ability_value": 0.2,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "210041": {
+    "id": "210041",
+    "name": "アオハル燃焼・根",
+    "rarity": 2,
+    "description": "レース終盤にアオハル魂が燃え\\nレース中のチームメンバーの根性合計が\\n高いほど脚に力強さが宿る",
+    "icon_id": "20102",
+    "need_skill_point": 200,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "==",
+          "key": "phase_random",
+          "value": "2"
+        },
+        "condition_raw": "phase_random==2",
+        "ability_time": 1.8,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "27",
+            "ability_value": 0.25,
+            "target_type": "1",
+            "target_value": 0
+          },
+          {
+            "ability_type": "31",
+            "ability_value": 0.3,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "210042": {
+    "id": "210042",
+    "name": "アオハル点火・根",
+    "rarity": 1,
+    "description": "レース終盤にアオハル魂が燃え\\nレース中のチームメンバーの根性合計が\\n高いほど脚にちょっと力強さが宿る",
+    "icon_id": "20101",
+    "need_skill_point": 200,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "==",
+          "key": "phase_random",
+          "value": "2"
+        },
+        "condition_raw": "phase_random==2",
+        "ability_time": 1.8,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "27",
+            "ability_value": 0.05,
+            "target_type": "1",
+            "target_value": 0
+          },
+          {
+            "ability_type": "31",
+            "ability_value": 0.1,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "210051": {
+    "id": "210051",
+    "name": "アオハル燃焼・賢",
+    "rarity": 2,
+    "description": "レース序盤にアオハル魂が燃え\\nレース中のチームメンバーの賢さ合計が\\n高いほど先を見据えたコース取りを行う",
+    "icon_id": "20132",
+    "need_skill_point": 200,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "==",
+          "key": "phase_random",
+          "value": "0"
+        },
+        "condition_raw": "phase_random==0",
+        "ability_time": 3.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "28",
+            "ability_value": 0.035,
+            "target_type": "1",
+            "target_value": 0
+          },
+          {
+            "ability_type": "8",
+            "ability_value": 15.0,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "210052": {
+    "id": "210052",
+    "name": "アオハル点火・賢",
+    "rarity": 1,
+    "description": "レース序盤にアオハル魂が燃えレース中\\nのチームメンバーの賢さ合計が高いほど\\nわずかに先を見据えたコース取りを行う",
+    "icon_id": "20131",
+    "need_skill_point": 200,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "==",
+          "key": "phase_random",
+          "value": "0"
+        },
+        "condition_raw": "phase_random==0",
+        "ability_time": 3.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "28",
+            "ability_value": 0.015,
+            "target_type": "1",
+            "target_value": 0
+          },
+          {
+            "ability_type": "8",
+            "ability_value": 5.0,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
   "300011": {
     "id": "300011",
     "name": "癒えない渇き",
@@ -18607,6 +18954,49 @@
           {
             "ability_type": "31",
             "ability_value": 0.2,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "910561": {
+    "id": "910561",
+    "name": "禾スナハチ登ル",
+    "rarity": 1,
+    "description": "レース後半に後方で詰め寄られると\\n幸運パワーが身体に実り\\n速度がわずかに上がる",
+    "icon_id": "20011",
+    "need_skill_point": 200,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "and",
+          "items": [
+            {
+              "operator": ">=",
+              "key": "distance_rate",
+              "value": "50"
+            },
+            {
+              "operator": ">=",
+              "key": "order_rate",
+              "value": "40"
+            },
+            {
+              "operator": ">=",
+              "key": "overtake_target_time",
+              "value": "2"
+            }
+          ]
+        },
+        "condition_raw": "distance_rate>=50&order_rate>=40&overtake_target_time>=2",
+        "ability_time": 3.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "27",
+            "ability_value": 0.15,
             "target_type": "1",
             "target_value": 0
           }
