@@ -79,6 +79,7 @@ class Course extends Component<IProps, IState> {
   };
 
   loadCourseData() {
+    const { localization } = this.props;
     for (const course of courses) {
       if (!(course.race_track_id in this.courseCategories)) {
         this.courseCategories[course.race_track_id] = {};
@@ -86,7 +87,7 @@ class Course extends Component<IProps, IState> {
       if (!(course.ground in this.courseCategories[course.race_track_id])) {
         this.courseCategories[course.race_track_id][course.ground] = {};
       }
-      this.courseCategories[course.race_track_id][course.ground][course.distance] = course;
+      this.courseCategories[course.race_track_id][course.ground][course.distance+" "+localization.course.inout[course.inout]] = course;
     }
   }
 

@@ -253,6 +253,7 @@ class ReverseQuery extends Component<IProps, IState> {
 
 
     parentList.forEach((parent)=>{
+      
       gFatherList.forEach((grandFather)=>{
         gMotherList.forEach((grandMother)=>{
 
@@ -286,7 +287,7 @@ class ReverseQuery extends Component<IProps, IState> {
           }
         })
       })
-      for(let index = 0; index < parentArray.length-1;index++){
+      for(let index = 0; index < parentArray.length;index++){
         for(let index2 = parentArray.length - 1; index2 > index;index2--){
           if(parentArray[index2].tagetOneRelation < parentArray[index].tagetOneRelation && 
             parentArray[index2].tagetOneRelation < parentArray[index].tagetTwoRelation && 
@@ -295,8 +296,10 @@ class ReverseQuery extends Component<IProps, IState> {
               parentArray.splice(index2,1)
               
           }
+        
         }
       }
+      
     })
     return parentArray;
   }
@@ -483,7 +486,9 @@ class ReverseQuery extends Component<IProps, IState> {
     
     return (
       <div className="content">
-        
+        <div>
+          <span style={{ color: 'red' }}>six unknown uma may crash</span>
+        </div>
         <div className="dropdown">
           <FormControl>
             <InputLabel id="demo-simple-select-label">Target</InputLabel>
