@@ -1701,6 +1701,34 @@
       }
     ]
   },
+  "100191": {
+    "id": "100191",
+    "name": "尊み☆ﾗｽﾄｽﾊﾟ—(ﾟ∀ﾟ)—ﾄ!",
+    "rarity": 5,
+    "description": "レース終盤に2回追い抜くと間近で拝む\\nウマ娘ちゃんのあまりの尊さに思わず\\n速度を上げる",
+    "icon_id": "20013",
+    "need_skill_point": null,
+    "abilities": [
+      {
+        "condition": {
+          "operator": ">=",
+          "key": "change_order_up_end_after",
+          "value": "2"
+        },
+        "condition_raw": "change_order_up_end_after>=2",
+        "ability_time": 5.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "27",
+            "ability_value": 0.35,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
   "100201": {
     "id": "100201",
     "name": "アングリング×スキーミング",
@@ -2255,6 +2283,59 @@
           {
             "ability_type": "31",
             "ability_value": 0.3,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "100391": {
+    "id": "100391",
+    "name": "姫たるもの、勝利をこの手に",
+    "rarity": 5,
+    "description": "最終直線を走行中に中団で競り合うと\\n可憐にぶっ飛ばして速度を上げる",
+    "icon_id": "20013",
+    "need_skill_point": null,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "and",
+          "items": [
+            {
+              "operator": "==",
+              "key": "is_finalcorner",
+              "value": "1"
+            },
+            {
+              "operator": "==",
+              "key": "corner",
+              "value": "0"
+            },
+            {
+              "operator": ">=",
+              "key": "order",
+              "value": "3"
+            },
+            {
+              "operator": "<=",
+              "key": "order_rate",
+              "value": "70"
+            },
+            {
+              "operator": ">=",
+              "key": "blocked_side_continuetime",
+              "value": "2"
+            }
+          ]
+        },
+        "condition_raw": "is_finalcorner==1&corner==0&order>=3&order_rate<=70&blocked_side_continuetime>=2",
+        "ability_time": 5.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "27",
+            "ability_value": 0.35,
             "target_type": "1",
             "target_value": 0
           }
@@ -3179,6 +3260,119 @@
           {
             "ability_type": "31",
             "ability_value": 0.4,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "110301": {
+    "id": "110301",
+    "name": "Drain for rose",
+    "rarity": 5,
+    "description": "レース中間付近を好位置で走行中に\\n詰め寄られると前方のウマ娘から\\n持久力を吸い取る",
+    "icon_id": "20023",
+    "need_skill_point": null,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "and",
+          "items": [
+            {
+              "operator": "==",
+              "key": "phase",
+              "value": "1"
+            },
+            {
+              "operator": ">=",
+              "key": "distance_rate",
+              "value": "50"
+            },
+            {
+              "operator": ">=",
+              "key": "order",
+              "value": "2"
+            },
+            {
+              "operator": "<=",
+              "key": "order_rate",
+              "value": "50"
+            },
+            {
+              "operator": ">=",
+              "key": "overtake_target_time",
+              "value": "1"
+            }
+          ]
+        },
+        "condition_raw": "phase==1&distance_rate>=50&order>=2&order_rate<=50&overtake_target_time>=1",
+        "ability_time": 0.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "9",
+            "ability_value": 0.055,
+            "target_type": "1",
+            "target_value": 0
+          },
+          {
+            "ability_type": "9",
+            "ability_value": -0.005,
+            "target_type": "9",
+            "target_value": 18
+          }
+        ]
+      }
+    ]
+  },
+  "110451": {
+    "id": "110451",
+    "name": "ぐるぐるマミートリック♡",
+    "rarity": 5,
+    "description": "最終直線を好位置で走行中\\n前のウマ娘との距離が近いと\\n抜け出しやすくなる",
+    "icon_id": "20013",
+    "need_skill_point": null,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "and",
+          "items": [
+            {
+              "operator": "==",
+              "key": "is_finalcorner",
+              "value": "1"
+            },
+            {
+              "operator": "==",
+              "key": "corner",
+              "value": "0"
+            },
+            {
+              "operator": "<=",
+              "key": "order",
+              "value": "4"
+            },
+            {
+              "operator": "<=",
+              "key": "bashin_diff_infront",
+              "value": "1"
+            }
+          ]
+        },
+        "condition_raw": "is_finalcorner==1&corner==0&order<=4&bashin_diff_infront<=1",
+        "ability_time": 5.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "27",
+            "ability_value": 0.25,
+            "target_type": "1",
+            "target_value": 0
+          },
+          {
+            "ability_type": "31",
+            "ability_value": 0.3,
             "target_type": "1",
             "target_value": 0
           }
@@ -9298,6 +9492,49 @@
           {
             "ability_type": "9",
             "ability_value": -0.01,
+            "target_type": "20",
+            "target_value": 10
+          }
+        ]
+      }
+    ]
+  },
+  "200772": {
+    "id": "200772",
+    "name": "見惚れるトリック",
+    "rarity": 2,
+    "description": "レース中盤に前の方にいると後ろの\\n掛かったウマ娘が疲れる",
+    "icon_id": "30052",
+    "need_skill_point": 140,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "and",
+          "items": [
+            {
+              "operator": "==",
+              "key": "phase",
+              "value": "1"
+            },
+            {
+              "operator": "<=",
+              "key": "order_rate",
+              "value": "50"
+            },
+            {
+              "operator": ">=",
+              "key": "temptation_count_behind",
+              "value": "1"
+            }
+          ]
+        },
+        "condition_raw": "phase==1&order_rate<=50&temptation_count_behind>=1",
+        "ability_time": 0.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "9",
+            "ability_value": -0.03,
             "target_type": "20",
             "target_value": 10
           }
@@ -16021,6 +16258,54 @@
       }
     ]
   },
+  "201592": {
+    "id": "201592",
+    "name": "ウママニア",
+    "rarity": 2,
+    "description": "近くにウマ娘がたくさんいると\\n速度が上がる",
+    "icon_id": "20012",
+    "need_skill_point": 160,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "or",
+          "items": [
+            {
+              "operator": "==",
+              "key": "near_count",
+              "value": "4"
+            },
+            {
+              "operator": "==",
+              "key": "near_count",
+              "value": "5"
+            },
+            {
+              "operator": "==",
+              "key": "near_count",
+              "value": "6"
+            },
+            {
+              "operator": "==",
+              "key": "near_count",
+              "value": "7"
+            }
+          ]
+        },
+        "condition_raw": "near_count==4@near_count==5@near_count==6@near_count==7",
+        "ability_time": 3.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "27",
+            "ability_value": 0.35,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
   "201601": {
     "id": "201601",
     "name": "地固め",
@@ -16316,6 +16601,180 @@
           {
             "ability_type": "27",
             "ability_value": 0.15,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "201681": {
+    "id": "201681",
+    "name": "狙うは最前列！",
+    "rarity": 2,
+    "description": "レース終盤に前を目指す\\n体勢をとる＜ダート＞",
+    "icon_id": "20052",
+    "need_skill_point": 140,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "and",
+          "items": [
+            {
+              "operator": "==",
+              "key": "ground_type",
+              "value": "2"
+            },
+            {
+              "operator": "==",
+              "key": "phase_random",
+              "value": "2"
+            }
+          ]
+        },
+        "condition_raw": "ground_type==2&phase_random==2",
+        "ability_time": 3.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "28",
+            "ability_value": 0.035,
+            "target_type": "1",
+            "target_value": 0
+          },
+          {
+            "ability_type": "31",
+            "ability_value": 0.3,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "201682": {
+    "id": "201682",
+    "name": "前列狙い",
+    "rarity": 1,
+    "description": "レース終盤に少し前を目指す\\n体勢をとる＜ダート＞",
+    "icon_id": "20051",
+    "need_skill_point": 140,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "and",
+          "items": [
+            {
+              "operator": "==",
+              "key": "ground_type",
+              "value": "2"
+            },
+            {
+              "operator": "==",
+              "key": "phase_random",
+              "value": "2"
+            }
+          ]
+        },
+        "condition_raw": "ground_type==2&phase_random==2",
+        "ability_time": 3.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "28",
+            "ability_value": 0.025,
+            "target_type": "1",
+            "target_value": 0
+          },
+          {
+            "ability_type": "31",
+            "ability_value": 0.2,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "201691": {
+    "id": "201691",
+    "name": "潜伏態勢",
+    "rarity": 2,
+    "description": "レース中盤が迫ったとき後方にいると\\n持久力を回復する＜作戦・差し＞",
+    "icon_id": "20022",
+    "need_skill_point": 180,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "and",
+          "items": [
+            {
+              "operator": "==",
+              "key": "running_style",
+              "value": "3"
+            },
+            {
+              "operator": "==",
+              "key": "phase_laterhalf_random",
+              "value": "0"
+            },
+            {
+              "operator": ">=",
+              "key": "order_rate",
+              "value": "50"
+            }
+          ]
+        },
+        "condition_raw": "running_style==3&phase_laterhalf_random==0&order_rate>=50",
+        "ability_time": 0.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "9",
+            "ability_value": 0.055,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "201692": {
+    "id": "201692",
+    "name": "静かな呼吸",
+    "rarity": 1,
+    "description": "レース中盤が迫ったとき後方にいると\\n持久力をわずかに回復する\\n＜作戦・差し＞",
+    "icon_id": "20021",
+    "need_skill_point": 180,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "and",
+          "items": [
+            {
+              "operator": "==",
+              "key": "running_style",
+              "value": "3"
+            },
+            {
+              "operator": "==",
+              "key": "phase_laterhalf_random",
+              "value": "0"
+            },
+            {
+              "operator": ">=",
+              "key": "order_rate",
+              "value": "50"
+            }
+          ]
+        },
+        "condition_raw": "running_style==3&phase_laterhalf_random==0&order_rate>=50",
+        "ability_time": 0.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "9",
+            "ability_value": 0.015,
             "target_type": "1",
             "target_value": 0
           }
@@ -17594,6 +18053,34 @@
       }
     ]
   },
+  "900191": {
+    "id": "900191",
+    "name": "尊み☆ﾗｽﾄｽﾊﾟ—(ﾟ∀ﾟ)—ﾄ!",
+    "rarity": 1,
+    "description": "レース終盤に2回追い抜くと\\n速度をわずかに上げる",
+    "icon_id": "20011",
+    "need_skill_point": 200,
+    "abilities": [
+      {
+        "condition": {
+          "operator": ">=",
+          "key": "change_order_up_end_after",
+          "value": "2"
+        },
+        "condition_raw": "change_order_up_end_after>=2",
+        "ability_time": 3.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "27",
+            "ability_value": 0.15,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
   "900201": {
     "id": "900201",
     "name": "アングリング×スキーミング",
@@ -18148,6 +18635,59 @@
           {
             "ability_type": "31",
             "ability_value": 0.1,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "900391": {
+    "id": "900391",
+    "name": "姫たるもの、勝利をこの手に",
+    "rarity": 1,
+    "description": "最終直線を走行中に中団で競り合うと\\n速度をわずかに上げる",
+    "icon_id": "20011",
+    "need_skill_point": 200,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "and",
+          "items": [
+            {
+              "operator": "==",
+              "key": "is_finalcorner",
+              "value": "1"
+            },
+            {
+              "operator": "==",
+              "key": "corner",
+              "value": "0"
+            },
+            {
+              "operator": ">=",
+              "key": "order",
+              "value": "3"
+            },
+            {
+              "operator": "<=",
+              "key": "order_rate",
+              "value": "70"
+            },
+            {
+              "operator": ">=",
+              "key": "blocked_side_continuetime",
+              "value": "2"
+            }
+          ]
+        },
+        "condition_raw": "is_finalcorner==1&corner==0&order>=3&order_rate<=70&blocked_side_continuetime>=2",
+        "ability_time": 3.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "27",
+            "ability_value": 0.15,
             "target_type": "1",
             "target_value": 0
           }
@@ -19072,6 +19612,119 @@
           {
             "ability_type": "31",
             "ability_value": 0.2,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "910301": {
+    "id": "910301",
+    "name": "Drain for rose",
+    "rarity": 1,
+    "description": "レース中間付近を好位置で走行中に\\n詰め寄られると前方のウマ娘から\\n持久力をわずかに吸い取る",
+    "icon_id": "20021",
+    "need_skill_point": 200,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "and",
+          "items": [
+            {
+              "operator": "==",
+              "key": "phase",
+              "value": "1"
+            },
+            {
+              "operator": ">=",
+              "key": "distance_rate",
+              "value": "50"
+            },
+            {
+              "operator": ">=",
+              "key": "order",
+              "value": "2"
+            },
+            {
+              "operator": "<=",
+              "key": "order_rate",
+              "value": "50"
+            },
+            {
+              "operator": ">=",
+              "key": "overtake_target_time",
+              "value": "1"
+            }
+          ]
+        },
+        "condition_raw": "phase==1&distance_rate>=50&order>=2&order_rate<=50&overtake_target_time>=1",
+        "ability_time": 0.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "9",
+            "ability_value": 0.015,
+            "target_type": "1",
+            "target_value": 0
+          },
+          {
+            "ability_type": "9",
+            "ability_value": -0.0025,
+            "target_type": "9",
+            "target_value": 18
+          }
+        ]
+      }
+    ]
+  },
+  "910451": {
+    "id": "910451",
+    "name": "ぐるぐるマミートリック♡",
+    "rarity": 1,
+    "description": "最終直線を好位置で走行中\\n前のウマ娘との距離が近いと\\nちょっと抜け出しやすくなる",
+    "icon_id": "20011",
+    "need_skill_point": 200,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "and",
+          "items": [
+            {
+              "operator": "==",
+              "key": "is_finalcorner",
+              "value": "1"
+            },
+            {
+              "operator": "==",
+              "key": "corner",
+              "value": "0"
+            },
+            {
+              "operator": "<=",
+              "key": "order",
+              "value": "4"
+            },
+            {
+              "operator": "<=",
+              "key": "bashin_diff_infront",
+              "value": "1"
+            }
+          ]
+        },
+        "condition_raw": "is_finalcorner==1&corner==0&order<=4&bashin_diff_infront<=1",
+        "ability_time": 3.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "27",
+            "ability_value": 0.05,
+            "target_type": "1",
+            "target_value": 0
+          },
+          {
+            "ability_type": "31",
+            "ability_value": 0.1,
             "target_type": "1",
             "target_value": 0
           }
