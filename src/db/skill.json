@@ -1874,6 +1874,55 @@
       }
     ]
   },
+  "100251": {
+    "id": "100251",
+    "name": "アナタヲ・オイカケテ",
+    "rarity": 5,
+    "description": "レース後半に中団から\\n『お友達』を追って速度を少しずつ上げ\\n前方のウマ娘をちょっと委縮させる",
+    "icon_id": "20013",
+    "need_skill_point": null,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "and",
+          "items": [
+            {
+              "operator": ">=",
+              "key": "distance_rate",
+              "value": "50"
+            },
+            {
+              "operator": ">=",
+              "key": "order_rate",
+              "value": "40"
+            },
+            {
+              "operator": "<=",
+              "key": "order_rate",
+              "value": "70"
+            }
+          ]
+        },
+        "condition_raw": "distance_rate>=50&order_rate>=40&order_rate<=70",
+        "ability_time": 6.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "21",
+            "ability_value": -0.05,
+            "target_type": "9",
+            "target_value": 5
+          },
+          {
+            "ability_type": "27",
+            "ability_value": 0.25,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
   "100261": {
     "id": "100261",
     "name": "G00 1st.F∞;",
@@ -3312,15 +3361,15 @@
         "effects": [
           {
             "ability_type": "9",
-            "ability_value": 0.055,
-            "target_type": "1",
-            "target_value": 0
-          },
-          {
-            "ability_type": "9",
             "ability_value": -0.005,
             "target_type": "9",
             "target_value": 18
+          },
+          {
+            "ability_type": "9",
+            "ability_value": 0.055,
+            "target_type": "1",
+            "target_value": 0
           }
         ]
       }
@@ -12940,7 +12989,7 @@
     "id": "201221",
     "name": "スタミナグリード",
     "rarity": 2,
-    "description": "レース中盤で後ろの方にいると\\n前方の持久力を少し奪う＜長距離＞",
+    "description": "レース中盤で後ろの方にいると\\n前方の持久力をわずかに奪う＜長距離＞",
     "icon_id": "30052",
     "need_skill_point": 160,
     "abilities": [
@@ -12971,13 +13020,13 @@
         "effects": [
           {
             "ability_type": "9",
-            "ability_value": -0.02,
+            "ability_value": -0.01,
             "target_type": "9",
             "target_value": 5
           },
           {
             "ability_type": "9",
-            "ability_value": 0.055,
+            "ability_value": 0.035,
             "target_type": "1",
             "target_value": 0
           }
@@ -16782,6 +16831,112 @@
       }
     ]
   },
+  "201701": {
+    "id": "201701",
+    "name": "決死の覚悟",
+    "rarity": 2,
+    "description": "ラストスパートの直線で好位置にいると\\n速度が上がる＜中距離＞",
+    "icon_id": "20012",
+    "need_skill_point": 160,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "and",
+          "items": [
+            {
+              "operator": "==",
+              "key": "distance_type",
+              "value": "3"
+            },
+            {
+              "operator": "==",
+              "key": "is_lastspurt",
+              "value": "1"
+            },
+            {
+              "operator": "==",
+              "key": "corner",
+              "value": "0"
+            },
+            {
+              "operator": ">=",
+              "key": "order_rate",
+              "value": "20"
+            },
+            {
+              "operator": "<=",
+              "key": "order_rate",
+              "value": "60"
+            }
+          ]
+        },
+        "condition_raw": "distance_type==3&is_lastspurt==1&corner==0&order_rate>=20&order_rate<=60",
+        "ability_time": 2.4,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "27",
+            "ability_value": 0.35,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "201702": {
+    "id": "201702",
+    "name": "ありったけ",
+    "rarity": 1,
+    "description": "ラストスパートの直線で好位置にいると\\n速度がわずかに上がる＜中距離＞",
+    "icon_id": "20011",
+    "need_skill_point": 160,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "and",
+          "items": [
+            {
+              "operator": "==",
+              "key": "distance_type",
+              "value": "3"
+            },
+            {
+              "operator": "==",
+              "key": "is_lastspurt",
+              "value": "1"
+            },
+            {
+              "operator": "==",
+              "key": "corner",
+              "value": "0"
+            },
+            {
+              "operator": ">=",
+              "key": "order_rate",
+              "value": "20"
+            },
+            {
+              "operator": "<=",
+              "key": "order_rate",
+              "value": "60"
+            }
+          ]
+        },
+        "condition_raw": "distance_type==3&is_lastspurt==1&corner==0&order_rate>=20&order_rate<=60",
+        "ability_time": 2.4,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "27",
+            "ability_value": 0.15,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
   "210011": {
     "id": "210011",
     "name": "アオハル燃焼・速",
@@ -18219,6 +18374,55 @@
           {
             "ability_type": "31",
             "ability_value": 0.1,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "900251": {
+    "id": "900251",
+    "name": "アナタヲ・オイカケテ",
+    "rarity": 1,
+    "description": "レース後半に中団から\\n速度をちょっとずつ上げ前方のウマ娘を\\nほんのちょっと委縮させる",
+    "icon_id": "20011",
+    "need_skill_point": 200,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "and",
+          "items": [
+            {
+              "operator": ">=",
+              "key": "distance_rate",
+              "value": "50"
+            },
+            {
+              "operator": ">=",
+              "key": "order_rate",
+              "value": "40"
+            },
+            {
+              "operator": "<=",
+              "key": "order_rate",
+              "value": "70"
+            }
+          ]
+        },
+        "condition_raw": "distance_rate>=50&order_rate>=40&order_rate<=70",
+        "ability_time": 3.6,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "21",
+            "ability_value": -0.025,
+            "target_type": "9",
+            "target_value": 5
+          },
+          {
+            "ability_type": "27",
+            "ability_value": 0.05,
             "target_type": "1",
             "target_value": 0
           }
@@ -19664,15 +19868,15 @@
         "effects": [
           {
             "ability_type": "9",
-            "ability_value": 0.015,
-            "target_type": "1",
-            "target_value": 0
-          },
-          {
-            "ability_type": "9",
             "ability_value": -0.0025,
             "target_type": "9",
             "target_value": 18
+          },
+          {
+            "ability_type": "9",
+            "ability_value": 0.015,
+            "target_type": "1",
+            "target_value": 0
           }
         ]
       }
