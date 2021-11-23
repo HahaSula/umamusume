@@ -1908,16 +1908,16 @@
         "cooldown_time": 500.0,
         "effects": [
           {
-            "ability_type": "21",
-            "ability_value": -0.05,
-            "target_type": "9",
-            "target_value": 5
-          },
-          {
             "ability_type": "27",
             "ability_value": 0.25,
             "target_type": "1",
             "target_value": 0
+          },
+          {
+            "ability_type": "21",
+            "ability_value": -0.05,
+            "target_type": "9",
+            "target_value": 5
           }
         ]
       }
@@ -2580,6 +2580,89 @@
       }
     ]
   },
+  "100481": {
+    "id": "100481",
+    "name": "YEAH☆VIVID TIME!",
+    "rarity": 5,
+    "description": "最終直線を走行中に好位置で\\n追い抜くまたは詰め寄られると\\nテンションを上げて速度を上げる",
+    "icon_id": "20013",
+    "need_skill_point": null,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "or",
+          "items": [
+            {
+              "operator": "and",
+              "items": [
+                {
+                  "operator": "==",
+                  "key": "is_finalcorner",
+                  "value": "1"
+                },
+                {
+                  "operator": "==",
+                  "key": "corner",
+                  "value": "0"
+                },
+                {
+                  "operator": ">=",
+                  "key": "order",
+                  "value": "2"
+                },
+                {
+                  "operator": "<=",
+                  "key": "order_rate",
+                  "value": "30"
+                },
+                {
+                  "operator": ">=",
+                  "key": "overtake_target_time",
+                  "value": "2"
+                }
+              ]
+            },
+            {
+              "operator": "and",
+              "items": [
+                {
+                  "operator": "==",
+                  "key": "is_finalcorner",
+                  "value": "1"
+                },
+                {
+                  "operator": "==",
+                  "key": "corner",
+                  "value": "0"
+                },
+                {
+                  "operator": "<=",
+                  "key": "order_rate",
+                  "value": "20"
+                },
+                {
+                  "operator": "<",
+                  "key": "change_order_onetime",
+                  "value": "0"
+                }
+              ]
+            }
+          ]
+        },
+        "condition_raw": "is_finalcorner==1&corner==0&order>=2&order_rate<=30&overtake_target_time>=2@is_finalcorner==1&corner==0&order_rate<=20&change_order_onetime<0",
+        "ability_time": 5.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "27",
+            "ability_value": 0.35,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
   "100501": {
     "id": "100501",
     "name": "Nemesis",
@@ -2771,6 +2854,104 @@
           {
             "ability_type": "31",
             "ability_value": 0.3,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "100591": {
+    "id": "100591",
+    "name": "彼方、その先へ…",
+    "rarity": 5,
+    "description": "落ち着いたまま、中盤の仕掛けどころの\\nまたは終盤の勝負どころのコーナーを\\n中団で進むと奮い立ち加速力が上がる",
+    "icon_id": "20043",
+    "need_skill_point": null,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "or",
+          "items": [
+            {
+              "operator": "and",
+              "items": [
+                {
+                  "operator": ">=",
+                  "key": "phase",
+                  "value": "2"
+                },
+                {
+                  "operator": "!=",
+                  "key": "corner",
+                  "value": "0"
+                },
+                {
+                  "operator": "==",
+                  "key": "is_finalcorner",
+                  "value": "0"
+                },
+                {
+                  "operator": "==",
+                  "key": "temptation_count",
+                  "value": "0"
+                },
+                {
+                  "operator": ">=",
+                  "key": "order_rate",
+                  "value": "50"
+                },
+                {
+                  "operator": "<=",
+                  "key": "order_rate",
+                  "value": "70"
+                }
+              ]
+            },
+            {
+              "operator": "and",
+              "items": [
+                {
+                  "operator": "==",
+                  "key": "phase",
+                  "value": "1"
+                },
+                {
+                  "operator": "!=",
+                  "key": "corner",
+                  "value": "0"
+                },
+                {
+                  "operator": "==",
+                  "key": "is_finalcorner",
+                  "value": "1"
+                },
+                {
+                  "operator": "==",
+                  "key": "temptation_count",
+                  "value": "0"
+                },
+                {
+                  "operator": ">=",
+                  "key": "order_rate",
+                  "value": "50"
+                },
+                {
+                  "operator": "<=",
+                  "key": "order_rate",
+                  "value": "70"
+                }
+              ]
+            }
+          ]
+        },
+        "condition_raw": "phase>=2&corner!=0&is_finalcorner==0&temptation_count==0&order_rate>=50&order_rate<=70@phase==1&corner!=0&is_finalcorner==1&temptation_count==0&order_rate>=50&order_rate<=70",
+        "ability_time": 4.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "31",
+            "ability_value": 0.4,
             "target_type": "1",
             "target_value": 0
           }
@@ -3177,6 +3358,49 @@
       }
     ]
   },
+  "110171": {
+    "id": "110171",
+    "name": "翳り退く、さざめきの矢",
+    "rarity": 5,
+    "description": "最終コーナー以降に先団で\\n詰め寄られると闘志を燃やして\\n速度を上げる",
+    "icon_id": "20013",
+    "need_skill_point": null,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "and",
+          "items": [
+            {
+              "operator": "==",
+              "key": "is_finalcorner",
+              "value": "1"
+            },
+            {
+              "operator": "<=",
+              "key": "order_rate",
+              "value": "40"
+            },
+            {
+              "operator": ">=",
+              "key": "overtake_target_time",
+              "value": "2"
+            }
+          ]
+        },
+        "condition_raw": "is_finalcorner==1&order_rate<=40&overtake_target_time>=2",
+        "ability_time": 5.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "27",
+            "ability_value": 0.35,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
   "110181": {
     "id": "110181",
     "name": "薫風、永遠なる瞬間を",
@@ -3361,13 +3585,72 @@
         "effects": [
           {
             "ability_type": "9",
-            "ability_value": -0.005,
-            "target_type": "9",
-            "target_value": 18
+            "ability_value": 0.055,
+            "target_type": "1",
+            "target_value": 0
           },
           {
             "ability_type": "9",
-            "ability_value": 0.055,
+            "ability_value": -0.005,
+            "target_type": "9",
+            "target_value": 18
+          }
+        ]
+      }
+    ]
+  },
+  "110401": {
+    "id": "110401",
+    "name": "GET DOWN",
+    "rarity": 5,
+    "description": "最終コーナー走行中に中団で競り合うと\\n抜け出しやすくなる",
+    "icon_id": "20013",
+    "need_skill_point": null,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "and",
+          "items": [
+            {
+              "operator": "==",
+              "key": "is_finalcorner",
+              "value": "1"
+            },
+            {
+              "operator": "!=",
+              "key": "corner",
+              "value": "0"
+            },
+            {
+              "operator": ">=",
+              "key": "order_rate",
+              "value": "30"
+            },
+            {
+              "operator": "<=",
+              "key": "order_rate",
+              "value": "70"
+            },
+            {
+              "operator": ">=",
+              "key": "blocked_side_continuetime",
+              "value": "2"
+            }
+          ]
+        },
+        "condition_raw": "is_finalcorner==1&corner!=0&order_rate>=30&order_rate<=70&blocked_side_continuetime>=2",
+        "ability_time": 5.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "27",
+            "ability_value": 0.25,
+            "target_type": "1",
+            "target_value": 0
+          },
+          {
+            "ability_type": "31",
+            "ability_value": 0.3,
             "target_type": "1",
             "target_value": 0
           }
@@ -3969,6 +4252,40 @@
           {
             "ability_type": "2",
             "ability_value": -40.0,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "200064": {
+    "id": "200064",
+    "name": "淀の申し子",
+    "rarity": 2,
+    "description": "京都レース場が得意になり\\nスタミナと賢さが上昇する",
+    "icon_id": "10022",
+    "need_skill_point": 130,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "==",
+          "key": "track_id",
+          "value": "10008"
+        },
+        "condition_raw": "track_id==10008",
+        "ability_time": -0.0001,
+        "cooldown_time": 0.0,
+        "effects": [
+          {
+            "ability_type": "2",
+            "ability_value": 60.0,
+            "target_type": "1",
+            "target_value": 0
+          },
+          {
+            "ability_type": "5",
+            "ability_value": 60.0,
             "target_type": "1",
             "target_value": 0
           }
@@ -5136,6 +5453,40 @@
           {
             "ability_type": "1",
             "ability_value": -40.0,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "200194": {
+    "id": "200194",
+    "name": "初嵐",
+    "rarity": 2,
+    "description": "秋のレースが得意になり\\nスピードとパワーが上昇する",
+    "icon_id": "10012",
+    "need_skill_point": 130,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "==",
+          "key": "season",
+          "value": "3"
+        },
+        "condition_raw": "season==3",
+        "ability_time": -0.0001,
+        "cooldown_time": 0.0,
+        "effects": [
+          {
+            "ability_type": "1",
+            "ability_value": 60.0,
+            "target_type": "1",
+            "target_value": 0
+          },
+          {
+            "ability_type": "3",
+            "ability_value": 60.0,
             "target_type": "1",
             "target_value": 0
           }
@@ -16937,6 +17288,34 @@
       }
     ]
   },
+  "201801": {
+    "id": "201801",
+    "name": "凸凹ネイル",
+    "rarity": 1,
+    "description": "「良」のバ場状態が少し苦手になる",
+    "icon_id": "10014",
+    "need_skill_point": 50,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "==",
+          "key": "ground_condition",
+          "value": "1"
+        },
+        "condition_raw": "ground_condition==1",
+        "ability_time": -0.0001,
+        "cooldown_time": 0.0,
+        "effects": [
+          {
+            "ability_type": "1",
+            "ability_value": -40.0,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
   "210011": {
     "id": "210011",
     "name": "アオハル燃焼・速",
@@ -18415,16 +18794,16 @@
         "cooldown_time": 500.0,
         "effects": [
           {
-            "ability_type": "21",
-            "ability_value": -0.025,
-            "target_type": "9",
-            "target_value": 5
-          },
-          {
             "ability_type": "27",
             "ability_value": 0.05,
             "target_type": "1",
             "target_value": 0
+          },
+          {
+            "ability_type": "21",
+            "ability_value": -0.025,
+            "target_type": "9",
+            "target_value": 5
           }
         ]
       }
@@ -19087,6 +19466,89 @@
       }
     ]
   },
+  "900481": {
+    "id": "900481",
+    "name": "YEAH☆VIVID TIME!",
+    "rarity": 1,
+    "description": "最終直線を走行中に好位置で\\n追い抜くまたは詰め寄られると\\nわずかに速度を上げる",
+    "icon_id": "20011",
+    "need_skill_point": 200,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "or",
+          "items": [
+            {
+              "operator": "and",
+              "items": [
+                {
+                  "operator": "==",
+                  "key": "is_finalcorner",
+                  "value": "1"
+                },
+                {
+                  "operator": "==",
+                  "key": "corner",
+                  "value": "0"
+                },
+                {
+                  "operator": ">=",
+                  "key": "order",
+                  "value": "2"
+                },
+                {
+                  "operator": "<=",
+                  "key": "order_rate",
+                  "value": "30"
+                },
+                {
+                  "operator": ">=",
+                  "key": "overtake_target_time",
+                  "value": "2"
+                }
+              ]
+            },
+            {
+              "operator": "and",
+              "items": [
+                {
+                  "operator": "==",
+                  "key": "is_finalcorner",
+                  "value": "1"
+                },
+                {
+                  "operator": "==",
+                  "key": "corner",
+                  "value": "0"
+                },
+                {
+                  "operator": "<=",
+                  "key": "order_rate",
+                  "value": "20"
+                },
+                {
+                  "operator": "<",
+                  "key": "change_order_onetime",
+                  "value": "0"
+                }
+              ]
+            }
+          ]
+        },
+        "condition_raw": "is_finalcorner==1&corner==0&order>=2&order_rate<=30&overtake_target_time>=2@is_finalcorner==1&corner==0&order_rate<=20&change_order_onetime<0",
+        "ability_time": 3.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "27",
+            "ability_value": 0.15,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
   "900501": {
     "id": "900501",
     "name": "Nemesis",
@@ -19278,6 +19740,104 @@
           {
             "ability_type": "31",
             "ability_value": 0.1,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "900591": {
+    "id": "900591",
+    "name": "彼方、その先へ…",
+    "rarity": 1,
+    "description": "落ち着いたまま、中盤の仕掛けどころの\\nまたは終盤の勝負どころのコーナーを\\n中団で進むとわずかに加速力が上がる",
+    "icon_id": "20041",
+    "need_skill_point": 200,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "or",
+          "items": [
+            {
+              "operator": "and",
+              "items": [
+                {
+                  "operator": ">=",
+                  "key": "phase",
+                  "value": "2"
+                },
+                {
+                  "operator": "!=",
+                  "key": "corner",
+                  "value": "0"
+                },
+                {
+                  "operator": "==",
+                  "key": "is_finalcorner",
+                  "value": "0"
+                },
+                {
+                  "operator": "==",
+                  "key": "temptation_count",
+                  "value": "0"
+                },
+                {
+                  "operator": ">=",
+                  "key": "order_rate",
+                  "value": "50"
+                },
+                {
+                  "operator": "<=",
+                  "key": "order_rate",
+                  "value": "70"
+                }
+              ]
+            },
+            {
+              "operator": "and",
+              "items": [
+                {
+                  "operator": "==",
+                  "key": "phase",
+                  "value": "1"
+                },
+                {
+                  "operator": "!=",
+                  "key": "corner",
+                  "value": "0"
+                },
+                {
+                  "operator": "==",
+                  "key": "is_finalcorner",
+                  "value": "1"
+                },
+                {
+                  "operator": "==",
+                  "key": "temptation_count",
+                  "value": "0"
+                },
+                {
+                  "operator": ">=",
+                  "key": "order_rate",
+                  "value": "50"
+                },
+                {
+                  "operator": "<=",
+                  "key": "order_rate",
+                  "value": "70"
+                }
+              ]
+            }
+          ]
+        },
+        "condition_raw": "phase>=2&corner!=0&is_finalcorner==0&temptation_count==0&order_rate>=50&order_rate<=70@phase==1&corner!=0&is_finalcorner==1&temptation_count==0&order_rate>=50&order_rate<=70",
+        "ability_time": 2.4,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "31",
+            "ability_value": 0.2,
             "target_type": "1",
             "target_value": 0
           }
@@ -19684,6 +20244,49 @@
       }
     ]
   },
+  "910171": {
+    "id": "910171",
+    "name": "翳り退く、さざめきの矢",
+    "rarity": 1,
+    "description": "最終コーナー以降に先団で\\n詰め寄られるとわずかに速度を上げる",
+    "icon_id": "20011",
+    "need_skill_point": 200,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "and",
+          "items": [
+            {
+              "operator": "==",
+              "key": "is_finalcorner",
+              "value": "1"
+            },
+            {
+              "operator": "<=",
+              "key": "order_rate",
+              "value": "40"
+            },
+            {
+              "operator": ">=",
+              "key": "overtake_target_time",
+              "value": "2"
+            }
+          ]
+        },
+        "condition_raw": "is_finalcorner==1&order_rate<=40&overtake_target_time>=2",
+        "ability_time": 3.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "27",
+            "ability_value": 0.15,
+            "target_type": "1",
+            "target_value": 0
+          }
+        ]
+      }
+    ]
+  },
   "910181": {
     "id": "910181",
     "name": "薫風、永遠なる瞬間を",
@@ -19868,13 +20471,72 @@
         "effects": [
           {
             "ability_type": "9",
-            "ability_value": -0.0025,
-            "target_type": "9",
-            "target_value": 18
+            "ability_value": 0.015,
+            "target_type": "1",
+            "target_value": 0
           },
           {
             "ability_type": "9",
-            "ability_value": 0.015,
+            "ability_value": -0.0025,
+            "target_type": "9",
+            "target_value": 18
+          }
+        ]
+      }
+    ]
+  },
+  "910401": {
+    "id": "910401",
+    "name": "GET DOWN",
+    "rarity": 1,
+    "description": "最終コーナー走行中に中団で競り合うと\\nちょっと抜け出しやすくなる",
+    "icon_id": "20011",
+    "need_skill_point": 200,
+    "abilities": [
+      {
+        "condition": {
+          "operator": "and",
+          "items": [
+            {
+              "operator": "==",
+              "key": "is_finalcorner",
+              "value": "1"
+            },
+            {
+              "operator": "!=",
+              "key": "corner",
+              "value": "0"
+            },
+            {
+              "operator": ">=",
+              "key": "order_rate",
+              "value": "30"
+            },
+            {
+              "operator": "<=",
+              "key": "order_rate",
+              "value": "70"
+            },
+            {
+              "operator": ">=",
+              "key": "blocked_side_continuetime",
+              "value": "2"
+            }
+          ]
+        },
+        "condition_raw": "is_finalcorner==1&corner!=0&order_rate>=30&order_rate<=70&blocked_side_continuetime>=2",
+        "ability_time": 3.0,
+        "cooldown_time": 500.0,
+        "effects": [
+          {
+            "ability_type": "27",
+            "ability_value": 0.05,
+            "target_type": "1",
+            "target_value": 0
+          },
+          {
+            "ability_type": "31",
+            "ability_value": 0.1,
             "target_type": "1",
             "target_value": 0
           }
